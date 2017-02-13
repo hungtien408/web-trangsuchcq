@@ -1,0 +1,292 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="site" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Bootstrap -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700,800,800italic&subset=latin,vietnamese' rel='stylesheet' type='text/css' />
+    <link href="assets/styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/styles/slick.css" rel="stylesheet" />
+    <link href="assets/styles/owl.carousel.min.css" rel="stylesheet" />
+    <link href="assets/styles/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <%--<link rel="stylesheet" type="text/css" href="assets/styles/owl.carousel.min.css" />--%>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <style type="text/css">
+            .corner
+            { 
+                behavior: url(PIE.htc); 
+            }
+            .fullbox-img
+            {
+	            -ms-behavior: url(backgroundsize.min.htc);
+	            behavior: url(backgroundsize.min.htc);
+            }
+        </style>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- JW Player -->
+    <script src="assets/js/jwplayer.js"></script>
+    <script src="assets/js/key.js"></script>
+    <script type="text/javascript">jwplayer.key = "5qMQ1qMprX8KZ79H695ZPnH4X4zDHiI0rCXt1g==";</script>
+
+    <title></title>
+    <!--main style-->
+    <link href="assets/styles/fonts.css" rel="stylesheet" />
+    <link href="assets/styles/site.css" rel="stylesheet" />
+    <%--<link href="assets/styles/jquery.inview.css" rel="stylesheet" />--%>
+    <link href="assets/styles/site-respon.css" rel="stylesheet" />
+    <!--end main style-->
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery.easing.1.3.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!--active menu-->
+    <script type="text/javascript">
+        function changeActiveMenu(page) {
+            $('#menu li').removeClass("active");
+            $('#menu li a[href*="' + page + '"]').parent("li").addClass("active");
+        }
+        function changeSubActiveMenu(page) {
+            $('#menu li li').removeClass("active");
+            $('#menu li li a[href$="' + page + '"]').parents("li").addClass("active");
+            $('.menu-list li').removeClass("active");
+            $('.menu-list li a[href$="' + page + '"]').parents("li").addClass("active");
+            var value1 = $('a.a-link-sp').attr('href');
+            $('#menu li li a[href$="' + value1 + '"]').parents("li").addClass("active");
+            $('.menu-list li a[href$="' + value1 + '"]').parents("li").addClass("active");
+            var value2 = $('a.a-link-spc').attr('href');
+            $('#menu li li a[href$="' + value2 + '"]').parents("li").addClass("active");
+            $('.menu-list li a[href$="' + value2 + '"]').parents("li").addClass("active");
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+            <div id="wrapper-in">
+                <div id="header">
+                    <div class="top-head">
+                        <div class="container">
+                            <div class="logo">
+                                <a id="A1" href="~/" runat="server">
+                                    <img src="assets/images/logo.png" /></a>
+                            </div>
+                            <div class="left-tophead">
+                                <div class="log">
+                                    <asp:ContentPlaceHolder ID="log" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+                            </div>
+                            <div class="right-tophead">
+                                <div class="search-for">
+                                    <div class="form-search">
+                                        <asp:Button ID="btnSearch" CssClass="search-btn" runat="server" Text="" ValidationGroup="Search" />
+                                        <div class="search-input">
+                                            <asp:TextBox ID="txtSearch" CssClass="search-text" runat="server" placeholder="Nhập từ khoá tìm kiếm"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart">
+                                    <a href="#">
+                                        <div class="number">
+                                            0
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bot-head">
+                        <div class="container">
+                            <ul id="menu" class="desktop-992">
+                                <li><a href="#">Bộ sưu tập</a></li>
+                                <li><a href="#">Trang sức cưới</a></li>
+                                <li><a href="#">Trang sức vàng</a></li>
+                                <li><a href="#">Kim cương</a></li>
+                                <li><a href="#">Đá quý</a></li>
+                                <li><a href="#">Ngọc trai</a></li>
+                                <li><a href="#">Trang sức bạc</a></li>
+                                <li><a href="#">Quà tặng</a></li>
+                                <li><a href="#">Ưu đãi online</a></li>
+                            </ul>
+                            <a class="panel-a menu-mo ipadmo-992" href="#menumobile" data-position="true" data-type="false">
+                                <span class="fa fa-reorder"></span>Menu
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="clr"></div>
+                <div id="main-content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <footer id="footer">
+                    <div class="top-footer container">
+                        <section>
+                            <h3 class="text-uppercase">Hỗ trợ mua hàng</h3>
+                            <ul>
+                                <li><a href="#">Hướng dẫn mua hàng</a></li>
+                                <li><a href="#">Hướng dẫn đo size nhẫn</a></li>
+                                <li><a href="#">Chế độ bảo hành</a></li>
+                                <li><a href="#">Phương thức vận chuyển</a></li>
+                                <li><a href="#">Phương thức thanh toán</a></li>
+                                <li><a href="#">Mua Online nhận ngay giá tốt</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 class="text-uppercase">Cẩm nang sử dụng</h3>
+                            <ul>
+                                <li><a href="#">Trang sức Kim Cương</a></li>
+                                <li><a href="#">Trang sức Ngọc Trai</a></li>
+                                <li><a href="#">Trang sức Đá Quý</a></li>
+                                <li><a href="#">Trang sức ECZ</a></li>
+                                <li><a href="#">Trang sức theo tháng sinh</a></li>
+                                <li><a href="#">Trang sức theo phong thuỷ</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 class="text-uppercase">Về chúng tôi</h3>
+                            <ul>
+                                <li><a href="#">Hệ thống cửa hàng</a></li>
+                                <li><a href="tin-tuc.aspx">Tin tức</a></li>
+                                <li><a href="#">Tin khuyến mãi</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                                <li><a href="#">FAQ</a></li>
+                            </ul>
+                        </section>
+                        <section class="contactus">
+                            <h3 class="text-uppercase">Liên hệ</h3>
+                            <ul>
+                                <li class="local">111 Tên Lửa, P. Bình Trị Đông B, Q. Bình Tân</li>
+                                <li class="phone">(04) 3664 9263</li>
+                                <li class="fax">(04) 3664 9263</li>
+                                <li class="mail">info@glam.spark.vn</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="copyright">
+                        <div class="container">
+                            <div class="pull-left">
+                                <p>© 2016 GLAM.SPARK. All rights reserved. <a href="http://www.hcq.vn/" target="_blank">Thiet ke web HCQ.</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-footer"></div>
+                </footer>
+            </div>
+            <!--menumobile-->
+            <div id="menumobile" class="mobile-panel mobilep-left">
+                <div class="menu-in">
+                    <div class="menu-mobile">
+                        <div class="logo">
+                            <a id="A2" href="~/" runat="server">
+                                <img class="img-responsive" src="assets/images/logo.png" alt="logo" />
+                            </a>
+                        </div>
+                        <ul id="menuMobiles" class="menu-nav">
+                            <li class="home"><a id="A3" href="~/" runat="server">Trang chủ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--menumobile-->
+        </div>
+        <a href="#" class="scroll-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
+        <div id="runScript" runat="server"></div>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.panel.mobile.js"></script>
+        <script src="assets/js/slick.min.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <%--<script src="assets/js/jquery.inview.js"></script>--%>
+        <!-- main js -->
+        <script src="assets/js/jquery.main.js"></script>
+
+        <!-- end main js -->
+		<div class="popup_cart scroll-popup">
+            <div class="popup-content">
+                <div class="form-popup">
+                    <h3>Giỏ hàng</h3>
+                    <p><span>2</span> sản phẩm trong giỏ hàng</p>
+                    <div class="wrap-contentpop">
+                        <div class="gh-left">
+                            <div class="item">
+                                <div class="img">
+                                    <img src="assets/images/img1.jpg" alt="" />
+                                </div>
+                                <div class="content">
+                                    <h3>Bộ sản phẩm RUBY Vàng 18K</h3>
+                                    <p>9.500.000 đ</p>
+                                    <div class="number">
+                                        Số lượng:
+                                        <div class="sp-quantity">
+                                            <div class="sp-btn fa fa-sort-asc" data-id="sp-plus"></div>
+                                            <div class="sp-input">
+                                                <input type="text" class="quntity-input" value="0" disabled="disabled" />
+                                            </div>
+                                            <div class="sp-btn fa fa-sort-desc" data-id="sp-minus"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clean-td">
+                                        Hủy
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="img">
+                                    <img src="assets/images/img1.jpg" alt="" />
+                                </div>
+                                <div class="content">
+                                    <h3>Bộ sản phẩm RUBY Vàng 18K</h3>
+                                    <p>9.500.000 đ</p>
+                                    <div class="number">
+                                        Số lượng:
+                                        <div class="sp-quantity">
+                                            <div class="sp-btn fa fa-sort-asc" data-id="sp-plus"></div>
+                                            <div class="sp-input">
+                                                <input type="text" class="quntity-input" value="0" disabled="disabled" />
+                                            </div>
+                                            <div class="sp-btn fa fa-sort-desc" data-id="sp-minus"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clean-td">
+                                        Hủy
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gh-right">
+                            <div class="top-right-cart">
+                                <p>Tạm tính: <span>19.000.000đ</span></p>
+                                <p>Phí vận chuyển: <span>0đ</span></p>
+                                <p>Giảm giá: <span>0đ</span></p>
+                            </div>
+                            <div class="bot-right-cart">
+                                <p>Thành tiền: <span>19.000.000đ</span></p>
+                                <div class="tieptuc">
+                                    <a href="#">Tiếp tục mua hàng ></a>
+                                    <asp:Button ID="Button1" runat="server" Text="thanh toán" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-btn-close">
+                    <img src="assets/images/btn-close.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

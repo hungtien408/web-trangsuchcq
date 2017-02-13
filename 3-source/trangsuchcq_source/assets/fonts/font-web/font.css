@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'UTM Khuccamta';
+  src: url('UTM Khuccamta.eot');
+  src: url('UTM Khuccamta.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UTMKhuccamta';
+  src: url('UTMKhuccamta.woff') format('woff'),
+       url('UTMKhuccamta.ttf') format('truetype'),
+       url('UTMKhuccamta.svg#UTMKhuccamta') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
